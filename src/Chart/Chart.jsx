@@ -80,19 +80,7 @@ const Chart = () => {
         </button>
       </div>
       <div className=" p-10 flex justify-center items-center ">
-        {/* <div className=" border-b border-b-black border-l  border-r-black  w-[680px] h-[410px]">
-          {chartData?.map((numbers, index) => {
-            return (
-              <div
-                key={index}
-                className="text-3xl text-black flex justify-center items-center"
-              >
-                {numbers}
-              </div>
-            );
-          })}
-        </div> */}
-
+        
         <div className="w-full">
           <div className="flex gap-4 w-[600px] border-b overflow-auto">
             {chartData?.map((number, i) => (
