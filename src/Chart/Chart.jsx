@@ -13,6 +13,18 @@ const Chart = () => {
 
   // setting data by the button click to show on the graph/chart
   const [chartData, setChartData] = useState([]);
+  const backgroundColor = [
+    "red",
+    "green",
+    "yellow",
+    "black",
+    "purple",
+    "beige",
+    "indigo",
+    "tomato",
+    "salmon",
+    "teal",
+  ];
 
   console.log("horizontal data ", chartData);
 
@@ -34,11 +46,16 @@ const Chart = () => {
       const objectForBody = {
         firstData: `${data1}`,
         secondData: `${data2}`,
+        bg: `${
+          backgroundColor[Math.round(Math.random() * backgroundColor.length)]
+        }`,
       };
 
       setChartData([...chartData, objectForBody]);
     }
   };
+
+  const [hidden, setHIdden]=useState(false)
 
   return (
     <div>
@@ -79,18 +96,23 @@ const Chart = () => {
           Show
         </button>
       </div>
-      <div className=" p-10 flex justify-center items-center ">
-        
-        <div className="w-full">
-          <div className="flex gap-4 w-[600px] border-b overflow-auto">
-            {chartData?.map((number, i) => (
+      <div className=" p-10 flex justify-center ">
+        <div className=" w-[600px] h-[300px] border-b border-l overflow-auto flex gap-3 px-4 text-xl items-end">
+          {chartData &&
+            chartData.map((data, i) => (
               <div
+                style={{
+                  width: `${data.firstData}px`,
+                  height: `${data.secondData}px`,
+                  backgroundColor: data.bg,
+                  
+                }}
+                onMouseOver={()=> {setHIdden(true)}}
                 key={i}
-                className={`w-[${number.firstData}px] h-[${number.secondData}px] border overflow-auto`}
-              ></div>
+              >
+               { hidden && <p>{i}</p>}
+              </div>
             ))}
-          </div>
-          {/* <div className=" border w-full"></div> */}
         </div>
       </div>
     </div>
