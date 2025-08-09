@@ -97,7 +97,7 @@ const Chart = () => {
         </button>
       </div>
       <div className=" p-10 flex justify-center ">
-        <div className=" w-[600px] h-[300px] border-b border-l overflow-auto flex gap-3 px-4 text-xl items-end">
+        <div className=" w-[1000px] h-[300px] border-b border-l overflow-auto flex gap-3 px-4 text-xl items-end">
           {chartData &&
             chartData.map((data, i) => (
               <div
@@ -107,7 +107,7 @@ const Chart = () => {
                   backgroundColor: data.bg,
                   
                 }}
-                onMouseOver={()=> {setHIdden(true)}}
+                // onMouseOver={()=> {setHIdden(!hidden)}}
                 key={i}
               >
                { hidden && <p>{i}</p>}
